@@ -1,0 +1,17 @@
+const { lastIndexOf } = require("lodash")
+
+Picture hosting site.
+
+
+adding comment to the server.
+
+{
+"Name": "Lalit Yadav",
+"current address" : "Lahan, Siraha"
+"Pronouns" : "he/him/his",
+"CurrentStatus" : "FreeAgent(GapYear)",
+"Interests" : ["ProblemSolving(competitive coding)", "web Development", "Blockchain(newbie)","economics(amateur)"],
+"Hobbies" : ["Watching movies and web series", "reading books", "keeping up with trending memes"],
+};
+If a movie was to be made about my life, it would most probably be a comedy movie. Leo or Steve Carell would be the
+obvious pick for the lead.
