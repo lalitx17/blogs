@@ -4,17 +4,20 @@
   "description": "This is a blog website.",
   "main": "server.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "start": "node app.js"
   },
   "author": "Lalit Yadav",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "cloudinary": "^1.31.0",
+    "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "lodash": "^4.17.21",
     "mongoose": "^6.3.4",
-    "nodemon": "^2.0.16",
+    "nodemon": "^2.0.19",
     "path": "^0.12.7"
   }
 }

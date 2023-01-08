@@ -3,9 +3,21 @@ const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const _ = require('lodash');
-const path = require('path')
+const path = require('path');
+const cloudinary = require('cloudinary').v2;
+const dotenv = require('dotenv');
+dotenv.config();
 
-const DB = "mongodb+srv://Lalit:LitVerseUnfolded17@cluster0.emucv.mongodb.net/?retryWrites=true&w=majority"
+//cloudinary configuration
+cloudinary.config({ 
+    cloud_name: 'ddskth9s2', 
+    api_key: '471433769291981', 
+    api_secret: '5mafsLEJuDEblaNAc_KDY2GY--U',
+    secure: true
+  });
+
+
+const DB = process.env.DATABASE_CONNECTION;
 
 const app = express();
 
@@ -25,11 +37,26 @@ mongoose.connect(DB).then(() => {
   }).catch((err) => console.log(err));
 
 
+/* cloudinary.uploader
+.upload("./public/images/lightbulb.png", {
+    resource_type: "auto", folder: 'litwords'
+})
+.then((result) => {
+    console.log("Success", JSON.stringify(result, null, 2));
+})
+.catch((error) => {
+    console.log("error", JSON.stringify(error, null, 2));
+}); */
+
+
+
+
+
 const wordSchema = new mongoose.Schema({
   title: String,
   articleId: Number,
   content: [String],
-  /* Image:  */
+  imageUrl: String,
   comments: [{name:String, email: String, body: String}]
 });
 
@@ -81,7 +108,6 @@ app.get("/reviews", (req, res) =>{
             fullReview = foundReviews;
         }
     });
-    console.log(numberOfReviews);
     if (numberOfReviews % 2 !== 0){
         numberOfReviews -= 1;
         oddReviewBit = 1; 
@@ -139,7 +165,6 @@ app.post("/commentSubmission/:state/:articleId", (req, res) =>{
         email: email,
         body: body
     }
-    console.log(comment);
     if (state === "blog"){
         Blog.findOneAndUpdate({articleId: articleNumber},
             {$push: {comments: comment}},
@@ -167,9 +192,12 @@ app.post("/commentSubmission/:state/:articleId", (req, res) =>{
 
 
 
-app.listen(3000, () =>{
-    console.log("server is running on port 3000");
-});
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+app.listen(port, function() {
+})
 
 
-//LitVerseUnfolded17

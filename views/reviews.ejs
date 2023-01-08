@@ -44,7 +44,7 @@
                     <li class="mx-4 nav-item active">
                         <a class="nav-link" href="/">BLOGS</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="mx-4 nav-item active">
                         <a class="nav-link" href="/reviews">REVIEWS</a>
                     </li>
                 </ul>
@@ -61,7 +61,7 @@
             <div class="col-md-6">
                 <a class="nav-link" href="/reviews/<%= i %>">
                     <div class="card m-5 shadow-lg mx-auto">
-                        <img class="card-img-top" height="350rem" src="images/spider.png" alt="" />
+                        <img class="card-img-top" height="350rem" src = <%= fullData[i].imageUrl %> alt="" />
                         <div class="card-body">
                             <h4 class="card-title"><%= fullData[i].title %></h4>
                             <p class="card-text">
@@ -76,7 +76,7 @@
             <div class="col-md-6">
                 <a class="nav-link" href="/reviews/<%= i + 1 %>">
                     <div class="card m-5 shadow-lg mx-auto">
-                        <img class="card-img-top" height="350rem" src="images/spider.png" alt="" />
+                        <img class="card-img-top" height="350rem" src = <%= fullData[i+1].imageUrl %> alt="" />
                         <div class="card-body">
                             <h4 class="card-title"><%= fullData[i+1].title %></h4>
                             <p class="card-text">
@@ -97,7 +97,7 @@
             <div class="col-md-6">
                 <a class="nav-link" href="/reviews/<%= numberOfBlogs %>">
                     <div class="card m-5 shadow-lg mx-auto">
-                        <img class="card-img-top" height="350rem" src="images/spider.png" alt="" />
+                        <img class="card-img-top" height="350rem" src = <%= fullData[numberOfBlogs].imageUrl %> alt="" />
                         <div class="card-body">
                             <h4 class="card-title"><%= fullData[numberOfBlogs].title %></h4>
                             <p class="card-text">
