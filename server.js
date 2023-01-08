@@ -33,7 +33,6 @@ app.use('/content', express.static(path.join(__dirname, 'public')));
 
 //connect the server with the database.
 mongoose.connect(DB).then(() => {
-    console.log("Connection Successful");
   }).catch((err) => console.log(err));
 
 
